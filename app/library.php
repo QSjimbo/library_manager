@@ -1,9 +1,11 @@
 <?php
 namespace App;
-use illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
-class library extends Model {
-    public $timestamp = false;
+class Library extends Model
+{
+    public $timestamps = false;
+
     protected $fillable = [
         "name"
     ];

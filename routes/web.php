@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("library/index", "libraryController@index");
+Route::get("library/index", "LibraryController@index");
+

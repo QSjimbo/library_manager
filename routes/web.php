@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 Route::get("library/index", "LibraryController@index");
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get("index", "LibraryController@index");

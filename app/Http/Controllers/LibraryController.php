@@ -1,15 +1,21 @@
 <?php
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-// 以下を追加する
+use Illuminate\Support\Facades\Auth;
+
+
 use App\Library;
 
 class LibraryController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleware("auth");
+    }
     // indexメソッドに処理を追加していきます
     public function index()
     {
+
         $libraries = Library::all();
 
         return view("library.index", ["libraries" => $libraries]);

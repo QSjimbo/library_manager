@@ -19,5 +19,6 @@ class LibraryController extends Controller
         $libraries = Library::all();
 
         return view("library.index", ["libraries" => $libraries]);
+        // Auth::logout();
     }
 }

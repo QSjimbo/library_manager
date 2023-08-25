@@ -25,22 +25,12 @@
                                 <th>Title</th>
                             </thead>
                             <tbody>
-                                <tr class="">
-                                    <td>1</td>
-                                    <td>Javascriptパターン　優れたアプリケーション</td>
-                                </tr>
-                                <tr class="">
-                                    <td>2</td>
-                                    <td>PHP + MySQL マスターブック</td>
-                                </tr>
-                                <tr class="">
-                                    <td>3</td>
-                                    <td>コーディングを支える技術　成り立ちから学ぶプログラミング作法</td>
-                                </tr>
-                                <tr class="">
-                                    <td>4</td>
-                                    <td>7つのデータベース　7つの世界</td>
-                                </tr>
+                                <?php foreach($libraries as $library ): ?>
+                                    <tr>
+                                        <td>{{ $library -> id }}</td>
+                                        <td>{{ $library -> name }}</td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

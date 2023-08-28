@@ -1,4 +1,5 @@
 @extends('main')
+@include('sidebar')
 @include('footer')
 
 @section('contents')

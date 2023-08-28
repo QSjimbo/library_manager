@@ -14,12 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("library/index", "LibraryController@index");
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+// 一覧
 Route::get("library/index", "LibraryController@index");
+// 貸し出しフォーム
 Route::get("library/borrow", "LibraryController@borrowingForm");
+// 貸し出し処理
 Route::post("library/borrow", "LibraryController@borrow");

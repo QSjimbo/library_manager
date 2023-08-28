@@ -34,14 +34,13 @@ class LibraryController extends Controller
         $library->user_id = $id;
         $library-> save();
 
-        $user = Auth::user();
         $log = new Log();
         $log->user_id = $id;
-        $log->libray_id = $request->id;
+        $log->library_id = $request->id;
         $log->rent_date = Carbon::now();//今日の日付を入れたい
         $log-> return_due_date = $request->return_due_date;// Postのリクエスト内容の返却予定日
-        $log->return_date = NULL;
-        $log->save() ;
-        return redirect("library/index");
+        $log->return_date = null;
+        $log->save();
+        return redirect("http://localhost/library_manager/public/library/index");
     }
 }

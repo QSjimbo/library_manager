@@ -19,4 +19,8 @@ class LibraryController extends Controller
         $user = Auth::user();
         return view("library.index", ["libraries" => $libraries], ["user" => $user]);
     }
+    public function borrowingForm(Request $request){
+        $library = Library::find($request->id);
+        return view("library.borrow", ["library" => $library]);
+    }
 }

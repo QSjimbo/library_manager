@@ -13,8 +13,27 @@
                     <p>Book List</p>
                 </a>
             </li>
+            <li class="link active" id="link-book-list">
+                <a href="/library/history">
+                    <i class="ti-user"></i>
+                    <p>Borrow History</p>
+                </a>
+            </li>
+            <li class="link">
+                <a href="/logout">
+                    <i class="ti-back-left"></i>
+                    <p>Logout</p>
+                </a>
+            </li>
         </ul>
+        <ul class="nav">
+        <li class="user">
+            <!-- ○○さんの部分は実際のログイン中のユーザー名とする -->
+            <!-- <p>○○さんがログイン中</p> -->
+            <p>{{ $user->name }}さんがログイン中</p>
     </div>
 </div>
 @endsection
+
+
 

@@ -15,10 +15,8 @@ class LibraryController extends Controller
     // indexメソッドに処理を追加していきます
     public function index()
     {
-
         $libraries = Library::all();
-
-        return view("library.index", ["libraries" => $libraries]);
-        // Auth::logout();
+        $user = Auth::user();
+        return view("library.index", ["libraries" => $libraries], ["user" => $user]);
     }
 }

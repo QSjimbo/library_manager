@@ -3,9 +3,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 use App\Library;
 use App\Log;
+use Carbon\Carbon;
 
 class LibraryController extends Controller
 {
@@ -22,19 +22,20 @@ class LibraryController extends Controller
     }
     public function borrowingForm(Request $request){
         $library = Library::find($request->id);
-        // dd($library);
         return view("library.borrow", ["library" => $library]);
     }
     public function borrow(Request $request){
-        $library = library::find($request->id);
+        $library = Library::find($request->id);
         $id = Auth::id();// カレントユーザーのID取得の書き方
         $library->user_id = $id;
         $library-> save();
+
+        $user = Auth::user();
         $log = new Log();
-        $log->libray_id = $request->id;
         $log->user_id = $id;
-        $log->rent_date = date("Y-m-d H:i:s");//今日の日付を入れたい
-        $log-> rent_due_date = date("Y-m-d H:i:s");// 本当はPostリクエスト内容の返却予定日
+        $log->libray_id = $request->id;
+        $log->rent_date = Carbon::now();//今日の日付を入れたい
+        $log-> return_due_date = $request->return_due_date;// Postのリクエスト内容の返却予定日
         $log->return_date = NULL;
         $log->save() ;
         return redirect("library/index");

@@ -1,4 +1,7 @@
 @extends('main')
+@include('footer')
+
+@section('contents')
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -24,11 +27,11 @@
                             <hr>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">return date</label>
-                                <input type="date" class="form-control border-input" placeholder="date">
+                                <input type="date" class="form-control border-input" name="return_due_date" placeholder="date">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success btn-fill btn-wd">borrow!</button>
-                                <input type="hidden" name="id" value="1">
+                                <input type="hidden" name="id" value="{{ $library->id }}">
                             </div>
                             <div class="clearfix"></div>
                         </form>
@@ -41,4 +44,4 @@
         </div>
     </div>
 </div>
-
+@endsection

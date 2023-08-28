@@ -20,6 +20,6 @@ Route::get("library/index", "LibraryController@index");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("index", "LibraryController@index");
-Route::get("borrow", "LibraryController@borrowingForm");
+Route::get("library/index", "LibraryController@index");
+Route::get("library/borrow", "LibraryController@borrowingForm");
 Route::post("library/borrow", "LibraryController@borrow");

@@ -25,12 +25,16 @@
                                 <th>Title</th>
                             </thead>
                             <tbody>
-                                <?php foreach($libraries as $library ): ?>
-                                    <tr>
-                                        <td>{{ $library -> id }}</td>
-                                        <td>{{ $library -> name }}</td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                <form action="{{ borrow }}" method="get">
+                                    @csrf
+                                    <?php foreach($libraries as $library ): ?>
+                                        <tr>
+                                            <td>{{ $library -> id }}</td>
+                                            <td>{{ $library -> name }}</td>
+                                            <td><input class="btn btn-info" type="submit" value="borrow"></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </form>
                             </tbody>
                         </table>
                     </div>

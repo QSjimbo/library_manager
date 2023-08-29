@@ -44,11 +44,18 @@ class LibraryController extends Controller
         return redirect("library/index");
     }
 
-    // public function returnBook(Request $request){
-    //     $library = Library::find($request->id);
-    //     $library->user_id = 0;
-    //     $library->save();
-    //     return redirect("url('liblary/index')");
+    public function returnBook(Request $request){
+        $library = Library::find($request->id);
+        $library->user_id = 0;
+        $library->save();
 
-    // }
+        $sql = Log::query();
+        $sql -> where("user_id", Auth::id());
+        $sql -> where("library_id", $request->id);
+        $sql -> orderBy("rent_date", "desc");// 同じユーザーが複数回借りることも考える。新しい順にしないといけない
+        $log = $sql -> first();// 最新のものを取ってくる感じ
+        $log -> return_date = Carbon::now();
+        $log -> save();
+        return redirect("library/index");
+    }
 }

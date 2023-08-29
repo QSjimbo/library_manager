@@ -44,11 +44,11 @@ class LibraryController extends Controller
         return redirect("library/index");
     }
 
-    // public function returnBook(Request $request){
-    //     $library = Library::find($request->id);
-    //     $library->user_id = 0;
-    //     $library->save();
-    //     return redirect("url('liblary/index')");
+    public function returnBook(Request $request){
+        $library = Library::find($request->id);
+        $library->user_id = 0;
+        $library->save();
+        return redirect("library/index");
 
-    // }
+    }
 }

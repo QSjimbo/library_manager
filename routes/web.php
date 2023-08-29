@@ -25,3 +25,6 @@ Route::get("library/index", "LibraryController@index");
 Route::get("library/borrow", "LibraryController@borrowingForm");
 // 貸し出し処理
 Route::post("library/borrow", "LibraryController@borrow");
+// 返却
+// Route::post("library/return", "LibraryController@returnBook");
+

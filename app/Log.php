@@ -4,5 +4,5 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Log extends Model {
-    public $timestamp = false;
+    public $timestamps = false;
 }

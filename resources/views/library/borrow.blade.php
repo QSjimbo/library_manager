@@ -20,7 +20,7 @@
                         <h4 class="title">Borrow book data</h4>
                     </div>
                     <div class="content">
-                        <form action="/library/borrow" method="POST">
+                        <form action=" {{ url('/library/borrow') }}" method="POST">
                             @csrf
                             <div class="author">
                                {{ $library->name }}

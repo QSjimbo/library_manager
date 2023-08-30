@@ -38,7 +38,7 @@ class LibraryController extends Controller
         $log->user_id = $id;
         $log->library_id = $request->id;
         $log->rent_date = Carbon::now();//今日の日付を入れたい
-        $log-> return_due_date = $request->return_due_date;// Postのリクエスト内容の返却予定日
+        $log->return_due_date = $request->return_due_date;// Postのリクエスト内容の返却予定日
         $log->return_date = null;
         $log->save();
         return redirect("library/index");
@@ -57,5 +57,15 @@ class LibraryController extends Controller
         $log -> return_date = Carbon::now();
         $log -> save();
         return redirect("library/index");
+    }
+
+    public function history(){
+        $logs = Log::where("user_id", Auth::id())->get();
+        $libraries = Library::all();
+        return view("library.borrowHistory", [
+            "libraries" => $libraries,
+            "logs" => $logs,
+            "user" => Auth::user()
+        ]);
     }
 }

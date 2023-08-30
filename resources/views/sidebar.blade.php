@@ -7,14 +7,14 @@
             </a>
         </div>
         <ul class="nav">
-            <li class="link">
-                <a href="/library/index">
+            <li class="link active">
+                <a href="{{ url('library/index' )}}">
                     <i class="ti-book"></i>
                     <p>Book List</p>
                 </a>
             </li>
-            <li class="link active" id="link-book-list">
-                <a href="/library/history">
+            <li class="link " id="link-book-list">
+                <a href="{{ url('library/history' )}}">
                     <i class="ti-user"></i>
                     <p>Borrow History</p>
                 </a>

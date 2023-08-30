@@ -22,27 +22,24 @@
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover">
                             <thead>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>rent_date</th>
-                                <th>return_due_date</th>
-                                <th>return_date</th>
+                                <!-- <th>ID</th> -->
+                                <th>タイトル</th>
+                                <th>貸出日</th>
+                                <th>返却予定日</th>
+                                <th>返却日</th>
                             </thead>
                             <tbody>
-                                <?php foreach($libraries as $library ): ?>
-                                    <?php if($user->id === $library -> user_id): ?>
-                                        <tr>
-                                            <td>{{ $library -> id }}</td>
-                                            <td>{{ $library -> name }}</td>
-                                            <?php if($librasy -> logs->rent_date === null ): ?>
-                                                <td> - </td>
-                                            <?php else: ?>
-                                                <td>{{ $librasy -> logs->rent_date }}</td>
-                                            <?php endif ?>
-                                            <td>{{ $librasy -> logs->return_due_date }}</td>
-                                            <td>{{ $librasy -> logs -> return_dat }}</td>
-                                        </tr>
-                                    <?php endif ?>
+                                <?php foreach($logs as $log ): ?>
+                                    <tr>
+                                        <td>{{ $log -> library -> name }}</td>
+                                        <td>{{ $log -> rent_date }}</td>
+                                        <td>{{ $log -> return_due_date }}</td>
+                                        @if (is_null($log->return_date))
+                                            <td>-</td>
+                                        @else
+                                            <td>{{ $log -> return_date }}</td>
+                                        @endif
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>

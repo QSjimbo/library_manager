@@ -62,7 +62,8 @@ class LibraryController extends Controller
     public function history(){
         $logs = Log::where("user_id", Auth::id())->get();
         $libraries = Library::all();
-        view("library.borrowHistory", [
+        return view("library.borrowHistory", [
+            "libraries" => $libraries,
             "logs" => $logs,
             "user" => Auth::user()
         ]);
